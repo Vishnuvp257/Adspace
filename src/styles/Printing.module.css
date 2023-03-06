@@ -1,0 +1,13 @@
+.parentContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.childContainer {
+	flex-basis: 17%;
+}
+
+.header {
+	margin: 1rem 0;
+}

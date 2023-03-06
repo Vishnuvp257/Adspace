@@ -1,0 +1,18 @@
+.sidebar {
+	width: fit-content;
+	min-width: 15%;
+	height: 100vh;
+	background-color: black;
+	color: white;
+	box-shadow: 1px solid rgba(0, 0, 0, 0.7);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	font-family: sans-serif;
+	padding-top: 2rem;
+}
+
+.sidebarTabs {
+	font-size: larger;
+}

@@ -1,0 +1,14 @@
+.container {
+	display: flex;
+}
+
+.formArea {
+	flex: 1;
+}
+
+.registedFormArea {
+	padding: 3rem 2rem;
+	display: flex;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+}
