@@ -3,82 +3,74 @@ import Image from 'next/image';
 
 import styles from './Form.module.css';
 
-const Form = () => {
+const Form = (props) => {
 	const [formData, setFormData] = useState({
 		code: '',
 		name: '',
 		size: '',
-		location: '',
-		imgs: []
+		location: ''
 	});
+
 	const [image, setImage] = useState([]);
 
 	const changeHandler = (e) => {
 		if (e.target.files) {
 			setImage(e.target.files);
-			setFormData((prev) => {
-				images: Array.from(e.target.files), prev;
-			});
+			console.log(e.target.files);
+			setFormData({ ...formData, [e.target.name]: Array.from(e.target.files) });
 		}
 	};
-	console.log(formData.name);
-	const { code, name, size, location, imgs } = formData;
 
-	const submitHandler = () => {
+	const { code, name, size, location } = formData;
+
+	const submitHandler = (e) => {
+		e.preventDefault();
 		console.log(formData);
 	};
 
 	return (
 		<form className={styles.form}>
 			<input
+				value={code}
 				className={styles.input}
 				placeholder='Code'
 				type='number'
-				name='Code'
-				value={code}
+				name='code'
 				onChange={(e) =>
-					setFormData((prev) => {
-						code: e.target.value, prev;
-					})
+					setFormData({ ...formData, [e.target.name]: e.target.value })
 				}
 				required
 			/>
 			<input
+				value={name}
 				className={styles.input}
 				placeholder='Name'
 				type='text'
-				name='Name'
-				value={name}
+				name='name'
 				onChange={(e) =>
-					setFormData((prev) => {
-						name: e.target.value, prev;
-					})
+					setFormData({ ...formData, [e.target.name]: e.target.value })
 				}
 				required
 			/>
 			<input
+				value={size}
 				className={styles.input}
 				placeholder='Size'
 				type='number'
-				name='Size'
-				value={size}
+				name='size'
 				onChange={(e) =>
-					setFormData((prev) => {
-						size: e.target.value, prev;
-					})
+					setFormData({ ...formData, [e.target.name]: e.target.value })
 				}
 				required
 			/>
 			<input
+				value={location}
 				className={styles.input}
 				placeholder='Location'
 				type='text'
-				name='Location'
-				value={location}
+				name='location'
 				onChange={(e) =>
-					setFormData((prev) => {
-						location: e.target.value, prev;
-					})
+					setFormData({ ...formData, [e.target.name]: e.target.value })
 				}
 				required
 			/>
@@ -98,9 +90,8 @@ const Form = () => {
 				<input
 					className={styles.input}
 					type='file'
-					name='upload image'
+					name='imgs'
 					onChange={changeHandler}
-					value={imgs}
 					required
 					multiple
 				/>
@@ -114,7 +105,7 @@ const Form = () => {
 			<button
 				className={styles.submitBtn}
 				type='submit'
-				onClick={submitHandler}>
+				onClick={props.onSubmit}>
 				Submit
 			</button>
 		</form>

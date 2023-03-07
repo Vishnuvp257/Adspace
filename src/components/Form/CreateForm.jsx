@@ -27,7 +27,7 @@ function CreateForm(props) {
 			<Modal
 				show={showModal}
 				onClose={closeModalHandler}>
-				<Form />
+				<Form onSubmit={props.onSubmit} />
 			</Modal>
 		</div>
 	);

@@ -6,7 +6,7 @@ function Navbar(props) {
 	return (
 		<nav className={styles.navbar}>
 			<h1 className={styles.navbarLogo}>
-				React <i className='fab fa-react'></i>
+				{props.spaceName} <i className='fab fa-react'></i>
 			</h1>
 			<div className={styles.menuIcon}>
 				{/* <i className={ ? 'fas fa-times' : 'fas fa-bars'}></i> */}

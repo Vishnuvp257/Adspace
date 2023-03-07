@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
 
 import Sidebar from '@/components/Sidebar';
 import CreateForm from '@/components/Form/CreateForm';
@@ -34,12 +33,13 @@ function SpaceName(props) {
     const [showModal, setShowModal] = useState(false);
     const [registeredForm, setRegisteredForm] = useState([]);
 
-    const router = useRouter();
-
     const submitHandler = (data) => {
+        console.log(data)
         setRegisteredForm(prevState => {
             return [...prevState, data]
         })
+
+
     }
 
     return (
